@@ -17,4 +17,10 @@ url = 'http://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 ingredient_serialized = open(url).read
 ingredient = JSON.parse(ingredient_serialized)
 
-puts "#{ingredient['name']} - #{user['bio']}"
+puts "#{ingredient['strIngredient1']}"
+
+
+
+
+
+
