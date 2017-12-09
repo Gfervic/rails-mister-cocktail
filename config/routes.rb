@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
   root to: "controller#action"
 
-  cocktails :index :show :new :create
+  # cocktails :index :show :new :create
 
-  doses :new :create :destroy
+  # doses :new :create :destroy
 
 
 
