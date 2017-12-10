@@ -1,2 +1,40 @@
-<h1>Cocktails#show</h1>
-<p>Find me in app/views/cocktails/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+      <h1><%= @cocktail.name %></h1>
+      <%= link_to 'Back', cocktails_path %>
+
+      <ul>
+        <% @cocktail.doses.each do |dose| %>
+        <li>
+          <%= dose.description %> of <%= dose.ingredient.name %>
+          (<%= link_to "delete", cocktail_dose_path(@cocktail, dose), method: :delete %>)
+        </li>
+        <% end %>
+      </ul>
+
+      <h3 class="text-center">Post dose for <%= @cocktail.name %> </h3>
+
+      <% if @dose.errors.any? %>
+        <div id="error_explanation">
+          <ul>
+            <% @dose.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description, placeholder: "2 tea spoons" %>
+      <%= f.input :ingredient_id, collection: Ingredient.all, prompt: "Pick one ingredient" %>
+
+
+      <%= f.submit "Add a dose", class: "btn btn-success" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+
