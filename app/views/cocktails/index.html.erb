@@ -1,4 +1,4 @@
-<h1 class="text-center margin-top">MR. COCKTAIL APP</h1>
+<h1 class="text-center margin-top">WELCOME TO MR. COCKTAIL APP</h1>
 
 <div class="text-center padded">
   <%= link_to "Create a cocktail", new_cocktail_path, class: "btn btn-primary" %>
@@ -19,9 +19,12 @@
           <% end %>
           <div class="card-body">
             <%= link_to cocktail.name, cocktail_path(cocktail) %>
+            <%= link_to "Remove", cocktail_path(cocktail), method: :delete, class: "btn-sm btn-danger", data: { confirm: "Are you sure?" }%>
           </div>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
