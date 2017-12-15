@@ -1,6 +1,11 @@
 <%= simple_form_for(@cocktail) do |f| %>
   <%= f.input :name, placeholder: "Cocktail name" %>
-  <%= f.input :picture, placeholder: "image url" %>
+  <%= f.input :picture%>
+  <%= f.input :picture_cache, as: :hidden %>
+
 
   <%= f.button :submit, class: "btn btn-primary"  %>
 <% end %>
+
+
+
