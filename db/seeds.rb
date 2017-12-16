@@ -28,6 +28,14 @@ cocktails = [
   {
     name: "Margarita",
     remote_picture_url: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-margarita.jpg"
+    },
+  {
+    name: "Sidecar",
+    remote_picture_url: "http://www.seriouseats.com/images/2014/11/20141101-cognac-sidecar-carey-jones.jpg"
+    },
+  {
+    name: "French 75",
+    remote_picture_url: "http://www.seriouseats.com/images/2015/03/20150323-cocktails-vicky-wasik-french75.jpg"
     }
 ]
 
