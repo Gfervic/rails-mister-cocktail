@@ -40,4 +40,3 @@ class CocktailsController < ApplicationController
   end
 end
 
-params.require(:product).permit(:name, :description, :photo, :photo_cache)

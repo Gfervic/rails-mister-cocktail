@@ -2,6 +2,12 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
 
+  # Options
+
+  process eager: true  # Force version generation at upload time, at display in views would be slower
+
+  process convert: 'jpg'
+
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
@@ -32,9 +38,19 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
+
   # version :thumb do
   #   process :resize_to_fit => [50, 50]
   # end
+
+  version :standard do
+    cloudinary_transformation width: 800, height: 600, crop: :fill
+  end
+
+  version :bright_face do
+    cloudinary_transformation effect: "brightness:30", radius: 20,
+      width: 150, height: 150, crop: :thumb, gravity: :face
+  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

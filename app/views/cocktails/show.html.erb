@@ -7,6 +7,10 @@
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1><%= @cocktail.name %></h1>
+      <!-- cloudinary img -->
+      <%= image_tag @cocktail.picture.url(:standard) %>
+      <%= image_tag @cocktail.picture.url(:bright_face) %>
+
       <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
       <%= link_to 'New dose', new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
 
