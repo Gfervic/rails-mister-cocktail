@@ -3,8 +3,9 @@
   margin-bottom: 15px;
 }
 .card-header {
-  height: 150px;
-  background-size: cover;
+  height: 175px;
+  background-size: cover!important;
+  background-position: center;
 }
 .card-body {
   padding: 30px;

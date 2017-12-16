@@ -49,7 +49,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   version :bright_face do
     cloudinary_transformation effect: "brightness:30", radius: 20,
-      width: 150, height: 150, crop: :thumb, gravity: :face
+      width: 300, height: 200, crop: :thumb, gravity: :face
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
