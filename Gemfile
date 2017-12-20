@@ -41,7 +41,7 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'figaro'
+gem 'figaro', '>= 1.0.0.rc1'
 
 #Front-end gems
 gem 'bootstrap-sass'
