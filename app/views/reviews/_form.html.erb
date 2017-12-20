@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+     <h3 class="text-center margin-top">Post review for <%= @cocktail.name %> </h3>
+
+     <% if @review.errors.any? %>
+     <div id="error_explanation">
+      <ul>
+        <% @review.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <%= simple_form_for [@cocktail, @review] do |f| %>
+    <%= f.input :content, placeholder: "Great Place" %>
+    <%= f.input :rating, collection: 1..10, prompt: "Rate cocktail"  %>
+
+    <%= f.submit "Post review", class: "btn btn-success" %>
+    <% end %>
+
+
+    <%= link_to 'Back', cocktail_path(@cocktail) %>
+
+    </div>
+  </div>
+</div>
