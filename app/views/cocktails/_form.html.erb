@@ -1,9 +1,26 @@
-<%= simple_form_for(@cocktail) do |f| %>
-  <%= f.input :name, placeholder: "Cocktail name" %>
-  <%= f.input :picture, as: :attachinary %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+     <h1 class="margin-top">Add new Cocktail</h1>
 
-  <%= f.button :submit, class: "btn btn-primary"  %>
-<% end %>
+     <% if @cocktail.errors.any? %>
+     <div id="error_explanation">
+      <ul>
+        <% @cocktail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
 
+     <%= simple_form_for(@cocktail) do |f| %>
+     <%= f.input :name, placeholder: "Cocktail name" %>
+     <%= f.input :picture, as: :attachinary %>
 
+     <%= f.button :submit, class: "btn btn-primary"  %>
+     <% end %>
 
+     <%= link_to 'Back', cocktails_path %>
+   </div>
+ </div>
+</div>

@@ -12,19 +12,37 @@
         <%= cl_image_tag @cocktail.picture.path, width: 800, height: 400, crop: :fill %>
       <% end %>
 
-      <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
+
       <%= link_to 'New dose', new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
+      <%= link_to 'Add review', new_cocktail_review_path(@cocktail), class: "btn btn-success" %>
+
+      <%= link_to 'Back', cocktails_path, class: "btn btn-primary" %>
 
       <div class="margin-top">
-      <ul>
-        <% @cocktail.doses.each do |dose| %>
-        <li>
-          <%= dose.description %> of <%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %>
-          <%= link_to "Delete", dose_path(dose), method: :delete, class: "btn btn-danger" %>
-        </li>
-        <% end %>
-      </ul>
+        <ul>
+          <% @cocktail.doses.each do |dose| %>
+          <li>
+            <%= dose.description %> of <%= link_to dose.ingredient.name, ingredient_path(dose.ingredient) %>
+            <%= link_to "Delete", dose_path(dose), method: :delete, class: "btn btn-danger" %>
+          </li>
+          <% end %>
+        </ul>
       </div>
+
+      <div class="margin-top">
+        <ul>
+          <% @cocktail.reviews.each do |review| %>
+          <li>
+            <%= review.content %>
+            <%= "⭐" * review.rating %>
+            <%= link_to "Delete", review_path(review), method: :delete, class: "btn btn-danger" %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
+
+
+
     </div>
   </div>
 </div>

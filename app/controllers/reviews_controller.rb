@@ -16,6 +16,13 @@ class ReviewsController < ApplicationController
     end
   end
 
+   def destroy
+    @review = Review.find (params[:id])
+    @cocktail = @review.cocktail
+    @review.destroy
+    redirect_to cocktail_path(@cocktail)
+  end
+
   private
 
   def review_params
@@ -23,6 +30,7 @@ class ReviewsController < ApplicationController
   end
 
   def set_cocktail
-     @cocktail = Restaurant.find(params[:cokctail_id])
+    @cocktail = Cocktail.find(params[:cocktail_id])
   end
+
 end

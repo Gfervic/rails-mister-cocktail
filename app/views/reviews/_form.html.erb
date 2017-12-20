@@ -14,7 +14,7 @@
     <% end %>
 
     <%= simple_form_for [@cocktail, @review] do |f| %>
-    <%= f.input :content, placeholder: "Great Place" %>
+    <%= f.input :content, placeholder: "Great cocktail" %>
     <%= f.input :rating, collection: 1..10, prompt: "Rate cocktail"  %>
 
     <%= f.submit "Post review", class: "btn btn-success" %>
