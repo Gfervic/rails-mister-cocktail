@@ -14,7 +14,9 @@ class CocktailsController < ApplicationController
   end
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
+    @cocktail = Cocktail.create(cocktail_params)
+    # flash[:success] = "Cocktail #{@cocktail.name} has been created" NW
+
 
     if @cocktail.save
       redirect_to cocktail_path(@cocktail)
@@ -25,6 +27,8 @@ class CocktailsController < ApplicationController
 
   def destroy
     @cocktail.destroy
+
+    # flash[:danger] = "Cocktail #{@cocktail.name} has been destroyed" NW
 
     redirect_to cocktails_path
   end

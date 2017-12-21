@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= yield(:title) || "MisterCocktail" %></title>
+  <title>
+  <%= yield_with_default(:title, "MisterCocktail") %>
+  </title>
+
+
   <meta name="description" content="<%= (yield(:description) || "").squish %>">
 
 
@@ -17,6 +21,7 @@
 <body>
 
   <%= render "shared/navbar" %>
+  <%= render 'shared/flash' %>
 
   <%= yield %>
 

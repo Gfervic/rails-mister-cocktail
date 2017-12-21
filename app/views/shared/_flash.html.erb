@@ -1,0 +1,7 @@
+
+<% flash.select { |type| %i(success info warning danger).include?(type) } .each do |type, message| %>
+  <div class="alert <%= bootstrap_class_for(type) %> fade in" role="alert">
+    <button class="close" data-dismiss="alert">×</button>
+    <%= message %>
+  </div>
+<% end %>
